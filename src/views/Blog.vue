@@ -1,7 +1,7 @@
 <template>
   <v-container fluid fill-height>
     <v-layout justify-center align-center>
-      <div class="display-4 primary--text text-Capitalize">Home Page</div>
+      <div class="display-4 primary--text text-Capitalize">Blog Page</div>
     </v-layout>
   </v-container>
 </template>
@@ -9,4 +9,3 @@
 <script>
 export default {};
 </script>
-
