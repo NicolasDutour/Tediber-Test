@@ -68,7 +68,10 @@ export default {
 
     methods: {
         next() {
-            if (this.firstSlideShownIndex < this.slides.length) {
+            if (
+                this.firstSlideShownIndex + this.numberOfSlidesShown <
+                this.slides.length
+            ) {
                 this.firstSlideShownIndex++;
             }
         },
@@ -83,7 +86,6 @@ export default {
                 this.firstSlideShownIndex,
                 this.firstSlideShownIndex + this.numberOfSlidesShown
             );
-            console.log('cocuou', res);
             return res;
         }
     }
