@@ -1,21 +1,28 @@
 <template>
-  <v-card class="card">
+  <v-card width="350px" min-width="350px" height="540px" class="card primary--text">
     <v-layout class="headline" justify-space-between align-center>
-      <v-flex class="date">{{ date }}</v-flex>
-      <v-flex class="type">{{ type | toUppercase }}</v-flex>
+      <v-card-text class="date">{{ date }}</v-card-text>
+      <v-card-text class="type primary white--text">{{ type }}</v-card-text>
     </v-layout>
-    <p class="triangle"></p>
-    <p class="logo">{{ logo | toUppercase }}</p>
-    <p class="name">{{ name | toUppercase }}</p>
-    <p class="title">{{ title }}</p>
-    <p class="body">{{ body }}</p>
-    <v-btn class="button" large color="secondary">{{actionButton}}</v-btn>
+    <v-card-text class="triangle"></v-card-text>
+    <v-card-text class="logo">{{ logo }}</v-card-text>
+    <v-card-title>
+      <v-card-text class="name">{{ name }}</v-card-text>
+      <v-card-text class="title">{{ title }}</v-card-text>
+    </v-card-title>
+    <v-card-text class="body">{{ body }}</v-card-text>
+    <v-card-actions>
+      <v-layout justify-center>
+        <v-btn large color="secondary">{{ actionButton }}</v-btn>
+      </v-layout>
+    </v-card-actions>
   </v-card>
 </template>
 
 <script>
 export default {
     name: 'slide',
+
     props: {
         name: String,
         logo: String,
@@ -25,65 +32,56 @@ export default {
         body: String,
         urm: String,
         actionButton: String
-    },
-    filters: {
-        toUppercase(value) {
-            return value.toUpperCase();
-        }
     }
 };
 </script>
 
 <style lang="scss" scoped>
 .card {
-    color: var(--v-primary-base);
     padding: 20px;
-    width: 335px;
-    height: 500px;
 
-    .headline,
+    .v-card__text,
+    .v-card__title {
+        padding: 0;
+    }
+
+    .triangle,
     .logo,
     .name,
-    .title,
-    .name,
-    .body {
-        margin-bottom: 20px;
-        font-weight: bold;
+    .title {
+        margin-bottom: 25px;
     }
 
-    .headline {
-        margin: 0;
+    .date,
+    .type,
+    .logo,
+    .name {
+        font-size: 1.5rem;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
 
-        .type {
-            background-color: var(--v-primary-base);
-            color: white;
-            margin-right: -38px;
-            padding: 10px;
-        }
-        .date {
-            font-size: 1.5rem;
-        }
+    .type {
+        margin-right: -46px;
     }
 
     .body {
-        font-weight: 400;
+        font-size: 1.3rem;
+    }
 
-        .button {
-            margin-top: auto;
-            font-size: 2rem;
-            font-weight: 300;
-        }
+    .v-card__actions {
+        margin-top: auto;
     }
 
     .triangle {
         width: 0;
         height: 0;
         border-style: solid;
-        border-width: 18px 18px 0 0;
+        border-width: 26px 26px 0 0;
         border-color: var(--v-primary-base) transparent transparent transparent;
 
         margin-left: auto;
-        margin-right: -38px;
+        margin-right: -46px;
     }
 }
 </style>

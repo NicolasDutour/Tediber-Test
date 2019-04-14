@@ -1,17 +1,16 @@
 <template>
   <v-container fluid text-md-center>
     <TitleAndDivider :title="title"/>
-    <v-layout row align-center class="carousel">
-      <v-flex md1 class="prev">
+    <v-layout row align-center>
+      <v-flex md1>
         <v-btn large color="secondary" fab @click="prev">
-          <v-icon class="icon" size="75">keyboard_arrow_left</v-icon>
+          <v-icon size="75">keyboard_arrow_left</v-icon>
         </v-btn>
       </v-flex>
-      <v-flex class="slides-wrapper">
-        <v-layout justify-center>
+      <v-flex>
+        <v-layout justify-space-around>
           <Slide
             color="white"
-            class="slide"
             v-for="(slide, i) in showSlides()"
             :key="i"
             :date="slide.date"
@@ -24,9 +23,9 @@
           />
         </v-layout>
       </v-flex>
-      <v-flex md1 class="next">
+      <v-flex md1>
         <v-btn large color="secondary" fab @click="next">
-          <v-icon class="icon" size="75">keyboard_arrow_right</v-icon>
+          <v-icon size="75">keyboard_arrow_right</v-icon>
         </v-btn>
       </v-flex>
     </v-layout>
@@ -93,20 +92,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.carousel {
-    .slides-wrapper {
-        .slide {
-            margin: 0 20px;
-        }
-    }
-
-    .prev,
-    .next {
-        text-align: center;
-
-        .icon {
-            font-weight: 200;
-        }
-    }
-}
 </style>
